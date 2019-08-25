@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -37,6 +38,7 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void startCounter(){
+    Toast.makeText(getReactApplicationContext(),"Step Started",Toast.LENGTH_LONG).show();
     runStepCounter();
     this.reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
             .emit("onStepStart",null);
