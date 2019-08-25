@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -80,6 +81,8 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule {
     public void onAccuracyChanged(Sensor s, int i){}
 
     public void onSensorChanged(SensorEvent se){
+      Log.e("onSensorChanged",""+se);
+      Toast.makeText(getReactApplicationContext(),""+se,Toast.LENGTH_LONG).show();
       if(se.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION){
         accValues.addPoint(se.values[2]); // Give values to be averaged to the processing class.
       }
