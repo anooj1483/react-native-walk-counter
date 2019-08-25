@@ -48,12 +48,12 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule {
 
   public void runStepCounter(){
     sensorManager = (SensorManager) this.getCurrentActivity().getSystemService(SENSOR_SERVICE);
-    accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+    accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
     rotSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
     stepListener = new StepSensorEventListener();
     orientationListener = new OrientationSensorEventListener();
 
-    sensorManager.registerListener(stepListener, accSensor, SensorManager.SENSOR_DELAY_FASTEST);
+    sensorManager.registerListener(stepListener, accSensor, SensorManager.SENSOR_DELAY_UI);
     sensorManager.registerListener(orientationListener, rotSensor, SensorManager.SENSOR_DELAY_NORMAL);
   }
 
