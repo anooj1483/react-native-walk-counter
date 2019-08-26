@@ -101,8 +101,9 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule {
         accValues.stepCountEast += Math.sin(tempBearing);
       }
 
-      steps+=accValues.stepCount;
-      onStepRunning(steps);
+      //steps+=accValues.stepCount;
+      Log.e("STEP_SERVICE",""+accValues.stepCount);
+      onStepRunning(accValues.stepCount);
 
       //output.setText(String.format("Steps: %d%n", accValues.stepCount));
     }
