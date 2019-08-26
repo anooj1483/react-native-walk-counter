@@ -57,9 +57,9 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule {
     sensorManager.registerListener(orientationListener, rotSensor, SensorManager.SENSOR_DELAY_NORMAL);
   }
 
-  public void onStepRunning(){
+  public void onStepRunning(int newSteps){
     this.reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-            .emit("onStepRunning",steps);
+            .emit("onStepRunning",newSteps);
   }
 
   @ReactMethod
@@ -102,7 +102,7 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule {
       }
 
       steps+=accValues.stepCount;
-      onStepRunning();
+      onStepRunning(steps);
 
       //output.setText(String.format("Steps: %d%n", accValues.stepCount));
     }
