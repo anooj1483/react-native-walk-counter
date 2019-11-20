@@ -1,13 +1,14 @@
 {
   "name": "react-native-walk-counter",
   "version": "1.0.5",
-  "description": "",
+  "description": "This is a React Native Android library to get the number of steps (Pedometer)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-native","pedometer","react-native-steps","react-native-step-counter",
+    "react-native-walk-counter"
   ],
   "author": "Anooj Krishnan G",
   "license": "MIT",
