@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.synclovis;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
