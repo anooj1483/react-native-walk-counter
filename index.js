@@ -8,4 +8,4 @@ import { DeviceEventEmitter,
 const { RNWalkCounter } = NativeModules;
 //const Emitter = new NativeEventEmitter(RNWalkCounter);
 
-export default RNWalkCounter;
+export default {RNWalkCounter};
