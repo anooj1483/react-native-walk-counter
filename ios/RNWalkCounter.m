@@ -1,6 +1,7 @@
 
 #import "RNWalkCounter.h"
 
+
 #import <CoreMotion/CoreMotion.h>
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
@@ -46,8 +47,8 @@ RCT_EXPORT_METHOD(queryWalkCounterDataBetweenDates:(NSDate *)startDate endDate:(
                                  }];
 }
 
-RCT_EXPORT_METHOD(startPedometerUpdatesFromDate:(NSDate *)date) {
-  [self.pedometer startPedometerUpdatesFromDate:date?:[NSDate date]
+RCT_EXPORT_METHOD(startWalkCounterUpdatesFromDate:(NSDate *)date) {
+  [self.pedometer startWalkCounterUpdatesFromDate:date?:[NSDate date]
                                     withHandler:^(CMWalkCounterData *WalkCounterData, NSError *error) {
                                       if (WalkCounterData) {
                                         [[self.bridge eventDispatcher] sendDeviceEventWithName:@"WalkCounterDataDidUpdate" body:[self dictionaryFromWalkCounterData:WalkCounterData]];
@@ -78,8 +79,8 @@ RCT_EXPORT_METHOD(startPedometerUpdatesFromDate:(NSDate *)date) {
            };
 }
 
-RCT_EXPORT_METHOD(stopPedometerUpdates) {
-  [self.walkCounter stopPedometerUpdates];
+RCT_EXPORT_METHOD(stopWalkCounterUpdates) {
+  [self.walkCounter stopWalkCounterUpdates];
 }
 
 #pragma mark - Private
@@ -91,7 +92,7 @@ RCT_EXPORT_METHOD(stopPedometerUpdates) {
     return nil;
   }
 
-  _pedometer = [CMWalkCounter new];
+  _walkCounter = [CMWalkCounter new];
 
   return self;
 }
